@@ -23,32 +23,34 @@ include "admin_menu.php";
  </table>
 </form>
 <br><br>
-<?php
- $no = 0;
- include "connect.php";
 
- $sql = "select * from product_type";
- $ex = mysql_query($sql, $conn);
- $result = mysql_db_query($dbname,$sql);
- $num = mysql_numrows($result);
- if($result>0){
- $show1 = "<table width=600 cellpadding=4 align=center border>";
- $show2 = "<tr bgcolor=#00CCCC align=center><td>Sl No.</td><td> Category
-</td><td> Edit</td><td> Delete</td></tr>";
- while ($row = mysql_fetch_array($result)){
- $show3 = "<td align=center>".$row["type_id"]. "</td>";
- $show4 = "<td>" .$row["type_name"]." </td>";
- $show5 = "<td align=center><a
-href=admin_edit1_product_type.php id=".$row["type_id"].">แก้ไข</a></td>";
- $show6= "<td align=center><a
-href=admin_delete_product_type.php?id=$row[type_id] onclick=\"return
-confirm('Delete Confirms?')\">Delete</a></td>";
- $show7= "</tr>";
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<html>
+  <body><br><br>
+    <p align="center">Display all Menu</p>
+    <table width="700" border="1" align="center">
+    <tr bgcolor="#00CCCC" align="center">
+     <td>SI No.</td>
+     <td>Category</td>
+     <td>Edit</td>
+     <td>Delete</td>
+   </tr>
+   <?php
+    include "connect.php";
+    $sql = "select * from product_type";
+    $ex = mysql_query($sql, $conn);
+    while($rs=mysql_fetch_array($ex)) {
+   ?>
+ <tr align="center">
+ <td><?php echo $rs["type_id"]?></td>
+ <td><?php echo $rs["type_name"]?></td>
+ <td><a href=admin_edit1_product_type.php?id=<?=$rs["type_id"]?>>Edit</a></td>
+ <td><a href=admin_delete_product_type.php?id=<?=$rs["type_id"]?>onclick="return confirm('Delete Confirm?')">Delete</a></td>
+ </tr>
+<?php
  }
- $show8 = "</table>";
- echo $show1, $show2,$show3, $show4,$show5, $show6,$show7, $show8;
-}
  mysql_close($conn);
 ?>
+</table>
 </body>
 </html>

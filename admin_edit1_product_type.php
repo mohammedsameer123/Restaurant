@@ -8,7 +8,7 @@
  include "admin_menu.php";
 
  $id = $_GET["id"];
- $sql = "select * from product_type where type_id=$id";
+ $sql = "select * from product_type where type_id='$id'";
  $ex = mysql_query($sql, $conn);
  $rs = mysql_fetch_assoc($ex);
 ?>
@@ -19,8 +19,8 @@
  <table width="600" align="center" border="0">
  <tr>
  <td width="150">Edit Categories</td>
- <td><input type="text" name="type_name" size="50" value="<?php $rs["type_name"] ?>">
-<input type="hidden" name="type_id" value="<?php $rs["type_id"] ?>"></td>
+ <td><input type="text" name="type_name" size="50" value="<?php echo $rs["type_name"] ?>">
+<input type="hidden" name="type_id" value="<?php echo $rs["type_id"] ?>"></td>
  </tr>
  <tr>
  <td width="150"></td>

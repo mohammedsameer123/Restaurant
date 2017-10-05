@@ -6,15 +6,14 @@
    exit;
  }
  $id = $_GET["id"];
- $sql_del = "select * from product where product_id=$id";
+ $sql_del = "select * from product where product_id='$id'";
  $ex_del = mysql_query($sql_del, $conn);
  $rs_del =mysql_fetch_array($ex_del);
- $filename = $rs_del[product_image];
- unlink("images/$filename");
- $sql = "delete from product where product_id=$id";
+ $sql = "delete from product where product_id='$id'";
  $ex = mysql_query($sql, $conn);
 if($ex) {
- echo "<meta http-equiv=refresh content=0; url=admin_product.php>";
+  echo "<meta http-equiv='refresh' content='0;
+  url=admin_product.php'>";
  } else {
  echo "<h3>Error to Delete</h3>";
  }

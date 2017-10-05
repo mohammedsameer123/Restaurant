@@ -43,10 +43,6 @@
   <td><input name="pprice" type="text" ></td>
 </tr>
 <tr>
-  <td>Image</td>
-  <td><input name="pimage" type="file"></td>
-</tr>
-<tr>
   <td>&nbsp;</td>
   <td><input type="submit" value="Add"> <input type="reset" value="Cancel"></td>
 </tr>

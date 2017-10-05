@@ -20,7 +20,7 @@
  <table width="500" border="0" align="center" cellpadding="5">
  <tr>
  <td>Menu Name</td>
- <td><input name="pname" type="text"value="<?php $rs[product_name]?>"></td>
+ <td><input name="pname" type="text"value="<?php echo $rs['product_name']?>"></td>
  </tr>
  <tr>
  <td>Category</td>
@@ -30,14 +30,14 @@
  $sql_type = "select * from product_type";
  $ex_type = mysql_query($sql_type, $conn);
  while ($rs_type=mysql_fetch_array($ex_type)) {
-   if ($rs_type[type_id] == $rs[type_id])
+   if ($rs_type['type_id'] == $rs['type_id'])
 {
 ?>
-<option value="<?php $rs_type[type_id]?>"selected><?php $rs_type[type_name]?></option>
+<option value="<?php echo $rs_type['type_id']?>"selected><?php echo $rs_type['type_name']?></option>
 <?php
  } else {
 ?>
- <option value="<?php $rs_type[type_id]?>"><?php $rs_type[type_name]?></option>
+ <option value="<?php echo $rs_type['type_id']?>"><?php echo $rs_type['type_name']?></option>
 <?php
  }
 }
@@ -47,21 +47,15 @@
  </tr>
  <tr>
  <td valign="top">Menu details</td>
- <td><textarea name="pdetail" rows="5" ><?=$rs[product_detail]?></textarea></td>
+ <td><textarea name="pdetail" rows="5" ><?php echo $rs['product_detail']?></textarea></td>
  </tr>
  <tr>
  <td>Price</td>
- <td><input name="pprice" type="text" value="<?=$rs[product_price]?>"></td>
- </tr>
- <tr>
- <td valign="top">images</td>
- <td><img src="images/<?=$rs[product_image]?>" width="100"><br><br>
- <input name="pimageold" type="hidden" value="<?=$rs[product_image]?>">
- <input name="pimage" type="file"></td>
+ <td><input name="pprice" type="text" value="<?php echo $rs['product_price']?>"></td>
  </tr>
  <tr>
  <td>&nbsp;</td>
- <td><input type="hidden" name="pid" value="<?=$rs[product_id]?>">
+ <td><input type="hidden" name="pid" value="<?php echo $rs['product_id']?>">
  <input type="submit" value="Save"> <input type="button" value="Cancel" onClick="history.back(0)"></td>
  </tr>
  </table>

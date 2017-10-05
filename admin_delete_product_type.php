@@ -6,7 +6,7 @@
    exit;
  }
  $id = $_GET["id"];
- $sql = "delete from product_type where type_id=$id";
+ $sql = "delete from product_type where type_id='$id'";
  $ex = mysql_query($sql, $conn);
  if($ex){
  echo "<meta http-equiv='refresh' content='0;

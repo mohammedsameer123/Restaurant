@@ -14,11 +14,11 @@
  echo "<h3>Insert Category</h3>";
  exit();
  }
- $sql = "update product_type set type_name = '$tname' where type_id=$tid";
+ $sql = "update product_type set type_name='$tname' where type_id='$tid'";
  $ex = mysql_query($sql, $conn);
  if($ex){
- echo "<meta http-equiv='refresh' content='0;
- url=admin_product_type.php'>";
+   echo "<meta http-equiv='refresh' content='0;
+   url=admin_product_type.php'>";
  } else {
  echo "<h3>Error</h3>";
  }
